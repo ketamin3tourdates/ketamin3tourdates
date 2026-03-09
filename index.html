@@ -157,64 +157,57 @@ footer{ width:100%; background:#2b2b2b; color:white; text-align:center; padding:
 .capa41:hover{ animation: shake 0.5s infinite; }
 @keyframes shake{0%{transform:translate(1px,1px) rotate(0deg);}10%{transform:translate(-1px,-2px) rotate(-1deg);}20%{transform:translate(-3px,0) rotate(1deg);}30%{transform:translate(3px,2px) rotate(0deg);}40%{transform:translate(1px,-1px) rotate(1deg);}50%{transform:translate(-1px,2px) rotate(-1deg);}60%{transform:translate(-3px,1px) rotate(0deg);}70%{transform:translate(3px,1px) rotate(-1deg);}80%{transform:translate(-1px,-1px) rotate(1deg);}90%{transform:translate(1px,2px) rotate(0deg);}100%{transform:translate(1px,-2px) rotate(-1deg);}}
 
-/* ------------------- GARABATOS ------------------- */
-.garabatos{ position:absolute; left:140px; top:calc(50% + 320px); display:flex; gap:20px; z-index:60; }
-.espiral{ width:80px; height:auto; transition: all 0.3s ease; }
-.fuego:hover{ animation: prenderFuego 0.5s infinite alternate; filter: brightness(2) drop-shadow(0 0 10px orange) drop-shadow(0 0 20px red);}
-@keyframes prenderFuego{0%{transform:scale(1) rotate(0deg); filter:brightness(1.5) drop-shadow(0 0 5px orange) drop-shadow(0 0 10px red);}50%{transform:scale(1.1) rotate(-5deg); filter:brightness(2) drop-shadow(0 0 10px orange) drop-shadow(0 0 20px red);}100%{transform:scale(1) rotate(5deg); filter:brightness(2.5) drop-shadow(0 0 15px orange) drop-shadow(0 0 30px red);}}
+/* ------------------- GARABATOS / ESPIRALES ------------------- */
+.garabatos{
+    position:absolute;
+    left:140px;
+    top: calc(50% + 320px);
+    display:flex;
+    gap:20px;
+    z-index:60;
+}
+
+.espiral{
+    width:80px;
+    height:auto;
+    transition: all 0.3s ease;
+}
+
+.fuego:hover{
+    animation: prenderFuego 0.5s infinite alternate;
+    filter: brightness(2) drop-shadow(0 0 10px orange) drop-shadow(0 0 20px red);
+}
+
+@keyframes prenderFuego{
+    0%{
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1.5) drop-shadow(0 0 5px orange) drop-shadow(0 0 10px red);
+    }
+    50%{
+        transform: scale(1.1) rotate(-5deg);
+        filter: brightness(2) drop-shadow(0 0 10px orange) drop-shadow(0 0 20px red);
+    }
+    100%{
+        transform: scale(1) rotate(5deg);
+        filter: brightness(2.5) drop-shadow(0 0 15px orange) drop-shadow(0 0 30px red);
+    }
+}
 
 /* ------------------- MEDIA QUERIES MÓVIL ------------------- */
 @media screen and (max-width:768px){
-    /* Contenedor header */
-    .header{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-    }
-
-    /* Eventos como scroll horizontal */
-    .eventos-movil{
-        display:flex;
-        overflow-x:auto;
-        gap:15px;
-        padding:10px;
-        width:100%;
-    }
-
-    .eventos-movil .evento, 
-    .eventos-movil .evento2,
-    .eventos-movil .evento3,
-    .eventos-movil .evento-chile,
-    .eventos-movil .evento-chile2{
-        position:relative; /* quitar absolute */
+    .header{ display:flex; flex-direction:column; align-items:center; }
+    .eventos-movil{ display:flex; overflow-x:auto; gap:15px; padding:10px; width:100%; }
+    .eventos-movil .evento, .eventos-movil .evento2, .eventos-movil .evento3, .eventos-movil .evento-chile, .eventos-movil .evento-chile2{
+        position:relative;
         flex:0 0 auto;
     }
+    .argentina, .bandera-ar, .chile, .bandera-cl{ position:relative; left:auto; right:auto; top:auto; transform:none; margin:0 auto; }
+    .personaje-hombre, .capa41{ position:relative; left:auto; right:auto; top:auto; margin:10px auto; }
+    .garabatos{ position:relative; flex-wrap:wrap; justify-content:center; top:auto; left:auto; margin:10px auto; }
 
-    /* Bandera y país centrado */
-    .argentina, .bandera-ar, .chile, .bandera-cl{
-        position:relative;
-        left:auto;
-        right:auto;
-        top:auto;
-        transform:none;
-        margin:0 auto;
-    }
-
-    /* Personaje y Capa41 decorativos */
-    .personaje-hombre, .capa41{
-        position:relative;
-        left:auto; right:auto; top:auto;
-        margin:10px auto;
-    }
-
-    /* Garabatos */
-    .garabatos{
-        position:relative;
-        flex-wrap:wrap;
-        justify-content:center;
-        top:auto;
-        left:auto;
-        margin:10px auto;
+    /* --------- OCULTAR ELEMENTOS EN MÓVIL --------- */
+    .subtitulo-img, .tour-img, .capa41 {
+        display: none !important;
     }
 }
 </style>
@@ -226,7 +219,6 @@ footer{ width:100%; background:#2b2b2b; color:white; text-align:center; padding:
 <img src="RECURSOS/EXTRAS/Porrito.png" class="porrito">
 
 <div class="header">
-
     <!-- LOGO -->
     <a href="https://www.instagram.com/shako2b/" target="_blank" class="logo-link">
         <img src="RECURSOS/SHAKO logo.png" class="logo">
@@ -279,6 +271,12 @@ footer{ width:100%; background:#2b2b2b; color:white; text-align:center; padding:
     <a href="https://www.instagram.com/66ixup/" target="_blank">
         <img src="RECURSOS/Capa 41.png" class="capa41">
     </a>
+
+    <!-- GARABATOS / ESPIRALES -->
+    <div class="garabatos">
+        <img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral fuego">
+        <img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral fuego">
+    </div>
 </div>
 
 <!-- IMÁGENES CENTRALES -->
