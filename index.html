@@ -9,33 +9,33 @@
 <script>
 
 function esMovil() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-    const ua = navigator.userAgent;
+    if (/android/i.test(ua)) return true;
+    if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return true;
 
-    const movilUA = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua);
+    if (window.matchMedia("(max-width: 768px)").matches) return true;
 
-    const movilWidth = window.matchMedia("(max-width: 768px)").matches;
-
-    const movilScreen = screen.width <= 768;
-
-    return movilUA || movilWidth || movilScreen;
+    return false;
 }
 
-if (esMovil()) {
-    window.location.replace("indexm.html");
-} else {
-    window.location.replace("indexo.html");
-}
+window.onload = function() {
+
+    if (esMovil()) {
+        window.location.href = "indexm.html";
+    } else {
+        window.location.href = "indexo.html";
+    }
+
+};
 
 </script>
 
 </head>
 
-<body>
+<body style="font-family:Arial;text-align:center;margin-top:60px;">
 
-<p style="text-align:center;font-family:Arial;margin-top:50px;">
-Redirigiendo...
-</p>
+<p>Cargando...</p>
 
 </body>
 </html>
