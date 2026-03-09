@@ -173,7 +173,7 @@ gap:20px;
 width:260px;
 cursor:pointer;
 max-width:100%;
-animation:pulso-brillo 4s ease-in-out infinite;
+animation:pulso-brillo 2s ease-in-out infinite;
 }
 
 .subtitulo{
@@ -256,7 +256,7 @@ left:20px;
 bottom:10px;
 width:160px;
 cursor:pointer;
-animation:pulso-brillo 4s ease-in-out infinite;
+animation:pulso-brillo 2s ease-in-out infinite;
 }
 
 /* ---------------- ANIMACION BRILLO ---------------- */
@@ -264,17 +264,18 @@ animation:pulso-brillo 4s ease-in-out infinite;
 @keyframes pulso-brillo{
 
 0%{
-transform:scale(1);
+transform:scale(0.95);
 filter:drop-shadow(0 0 0px rgba(255,255,255,0));
 }
 
 50%{
-transform:scale(1.08);
-filter:drop-shadow(0 0 16px rgba(255,255,255,0.9));
+transform:scale(1.18);
+filter:drop-shadow(0 0 22px rgba(255,255,255,1))
+       drop-shadow(0 0 40px rgba(255,255,255,0.8));
 }
 
 100%{
-transform:scale(1);
+transform:scale(0.95);
 filter:drop-shadow(0 0 0px rgba(255,255,255,0));
 }
 
