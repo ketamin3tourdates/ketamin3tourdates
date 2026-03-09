@@ -4,18 +4,27 @@
 <meta charset="UTF-8">
 <title>Redirigiendo...</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script>
 
-// función para detectar móviles
 function esMovil() {
-    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
+    const ua = navigator.userAgent;
+
+    const movilUA = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua);
+
+    const movilWidth = window.matchMedia("(max-width: 768px)").matches;
+
+    const movilScreen = screen.width <= 768;
+
+    return movilUA || movilWidth || movilScreen;
 }
 
-// redirección
 if (esMovil()) {
-    window.location.href = "indexm.html";   // móvil
+    window.location.replace("indexm.html");
 } else {
-    window.location.href = "indexo.html";   // ordenador
+    window.location.replace("indexo.html");
 }
 
 </script>
