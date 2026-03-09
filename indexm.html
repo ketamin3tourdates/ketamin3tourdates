@@ -6,10 +6,22 @@
 
 <style>
 
+/* ---------------- RESET ---------------- */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html,body{
+max-width:100%;
+overflow-x:hidden;
+}
+
 /* ---------------- GENERAL ---------------- */
 
 body{
-margin:0;
 min-height:100vh;
 display:flex;
 flex-direction:column;
@@ -18,7 +30,6 @@ background-image:url("RECURSOS/Fondo WEB MAS CLARO.jpg");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-overflow-x:hidden;
 }
 
 /* ---------------- GRID PRINCIPAL ---------------- */
@@ -32,6 +43,7 @@ width:100%;
 margin:auto;
 padding:40px 20px;
 align-items:start;
+overflow:hidden;
 }
 
 /* ---------------- DECORACIONES ---------------- */
@@ -88,6 +100,7 @@ text-decoration:none;
 
 .evento img{
 transition:.3s;
+max-width:100%;
 }
 
 .evento:hover img{
@@ -115,6 +128,7 @@ gap:20px;
 width:260px;
 transition:.3s;
 cursor:pointer;
+max-width:100%;
 }
 
 .logo:hover{
@@ -170,10 +184,12 @@ transform:scale(1.1);
 position:relative;
 width:100%;
 margin-top:auto;
+overflow:hidden;
 }
 
 .pasto{
 width:100%;
+display:block;
 }
 
 .stickmans{
