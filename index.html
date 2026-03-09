@@ -6,10 +6,16 @@
 
 <script>
 
-if (window.innerWidth <= 768) {
-    window.location.href = "indexm.html";
+// función para detectar móviles
+function esMovil() {
+    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+}
+
+// redirección
+if (esMovil()) {
+    window.location.href = "indexm.html";   // móvil
 } else {
-    window.location.href = "indexo.html";
+    window.location.href = "indexo.html";   // ordenador
 }
 
 </script>
