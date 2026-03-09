@@ -96,6 +96,7 @@ align-items:center;
 gap:12px;
 cursor:pointer;
 text-decoration:none;
+position:relative;
 }
 
 .evento img{
@@ -113,6 +114,50 @@ width:180px;
 
 .fecha{
 width:70px;
+}
+
+/* ---------------- GLITCH ---------------- */
+
+.ba-hover{
+position:relative;
+display:flex;
+align-items:center;
+gap:12px;
+cursor:pointer;
+}
+
+.ba-hover img{
+transition:filter .3s ease;
+}
+
+.ba-hover:hover img{
+filter:brightness(30%);
+}
+
+.glitch{
+position:absolute;
+left:0;
+font-size:26px;
+font-weight:bold;
+font-family:Arial,Helvetica,sans-serif;
+color:white;
+letter-spacing:3px;
+opacity:0;
+pointer-events:none;
+}
+
+.ba-hover:hover .glitch{
+opacity:1;
+animation:glitch .6s infinite;
+}
+
+@keyframes glitch{
+0%{transform:translate(0);text-shadow:2px 0 red,-2px 0 cyan;}
+20%{transform:translate(-2px,2px);text-shadow:-2px -2px red,2px 2px cyan;}
+40%{transform:translate(-2px,-2px);text-shadow:2px 2px red,-2px -2px cyan;}
+60%{transform:translate(2px,2px);text-shadow:-2px 2px red,2px -2px cyan;}
+80%{transform:translate(2px,-2px);text-shadow:2px -2px red,-2px 2px cyan;}
+100%{transform:translate(0);text-shadow:2px 0 red,-2px 0 cyan;}
 }
 
 /* ---------------- CENTRO ---------------- */
@@ -307,9 +352,11 @@ width:200px;
 <img src="RECURSOS/LUGARES/BANDERA Argentina.png" class="bandera">
 <img src="RECURSOS/LUGARES/ARGENITNA.png" class="titulo-pais">
 
-<div class="evento">
+<!-- EVENTO CON GLITCH -->
+<div class="ba-hover">
 <img src="RECURSOS/LUGARES/PRIMER PISO BAR.png" class="lugar">
 <img src="RECURSOS/Fechas/11_03.png" class="fecha">
+<div class="glitch">PRIMER PISO BAR</div>
 </div>
 
 <a href="https://alpogo.com/evento/bad-habit-fest-vol-2-24946" target="_blank" class="evento">
