@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ---------------- GENERAL ---------------- */
+
+body{
+margin:0;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+font-family:Arial, Helvetica, sans-serif;
+background-image:url("RECURSOS/Fondo WEB MAS CLARO.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+overflow-x:hidden;
+}
+
+/* ---------------- GRID PRINCIPAL ---------------- */
+
+.layout{
+display:grid;
+grid-template-columns:1fr 420px 1fr;
+gap:40px;
+max-width:1400px;
+width:100%;
+margin:auto;
+padding:40px 20px;
+align-items:start;
+}
+
+/* ---------------- DECORACIONES ---------------- */
+
+.cogollo,.porrito{
+position:fixed;
+top:10px;
+width:120px;
+z-index:100;
+cursor:pointer;
+}
+
+.cogollo{left:10px;}
+.porrito{right:10px;}
+
+.cogollo:hover,.porrito:hover{
+animation:sacudir .2s steps(2) infinite;
+}
+
+@keyframes sacudir{
+0%,50%{transform:translateX(0)}
+25%{transform:translateX(-4px)}
+75%{transform:translateX(4px)}
+}
+
+/* ---------------- COLUMNAS ---------------- */
+
+.columna{
+display:flex;
+flex-direction:column;
+gap:20px;
+align-items:center;
+}
+
+/* ---------------- BANDERAS ---------------- */
+
+.bandera{
+width:130px;
+}
+
+.titulo-pais{
+width:160px;
+}
+
+/* ---------------- EVENTOS ---------------- */
+
+.evento{
+display:flex;
+align-items:center;
+gap:12px;
+cursor:pointer;
+text-decoration:none;
+}
+
+.evento img{
+transition:.3s;
+}
+
+.evento:hover img{
+transform:scale(1.1);
+}
+
+.lugar{
+width:180px;
+}
+
+.fecha{
+width:70px;
+}
+
+/* ---------------- CENTRO ---------------- */
+
+.centro{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:20px;
+}
+
+.logo{
+width:260px;
+transition:.3s;
+cursor:pointer;
+}
+
+.logo:hover{
+transform:scale(1.1);
+}
+
+.subtitulo{
+width:200px;
+}
+
+.tour{
+width:150px;
+}
+
+/* ---------------- SOL ---------------- */
+
+.sol-wrapper{
+position:relative;
+}
+
+.sol{
+width:250px;
+}
+
+.brillos{
+position:absolute;
+top:0;
+left:0;
+width:250px;
+animation:brillos 2.5s infinite;
+}
+
+@keyframes brillos{
+0%,50%,100%{opacity:0}
+25%,75%{opacity:1}
+}
+
+/* ---------------- PERSONAJE ---------------- */
+
+.personaje{
+width:110px;
+transition:.3s;
+cursor:pointer;
+}
+
+.personaje:hover{
+transform:scale(1.1);
+}
+
+/* ---------------- PASTO ---------------- */
+
+.pasto-contenedor{
+position:relative;
+width:100%;
+margin-top:auto;
+}
+
+.pasto{
+width:100%;
+}
+
+.stickmans{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+bottom:10px;
+width:220px;
+}
+
+.flor{
+position:absolute;
+bottom:10px;
+width:70px;
+}
+
+.flor-izq{left:25%;}
+.flor-der{right:25%;}
+
+.rulito{
+position:absolute;
+left:20px;
+bottom:10px;
+width:160px;
+cursor:pointer;
+transition:.3s;
+}
+
+.rulito:hover{
+transform:scale(1.1);
+}
+
+/* ---------------- LOGO DZZY ---------------- */
+
+.dzzy{
+position:absolute;
+right:20px;
+bottom:40px;
+width:70px;
+opacity:.9;
+transition:.3s;
+}
+
+.dzzy:hover{
+transform:scale(1.1);
+opacity:1;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+background:#2b2b2b;
+text-align:center;
+padding:8px;
+font-size:14px;
+color:white;
+}
+
+.footer-text{
+display:inline-block;
+transition:.7s;
+}
+
+.footer-text:hover{
+transform:scale(1.6);
+opacity:0;
+filter:blur(8px);
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width:900px){
+
+.layout{
+grid-template-columns:1fr;
+gap:30px;
+text-align:center;
+}
+
+.columna{
+order:2;
+}
+
+.centro{
+order:1;
+}
+
+.logo{
+width:220px;
+}
+
+.sol{
+width:200px;
+}
+
+.brillos{
+width:200px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<img src="RECURSOS/EXTRAS/Cogollo.png" class="cogollo">
+<img src="RECURSOS/EXTRAS/Porrito.png" class="porrito">
+
+<div class="layout">
+
+<!-- ARGENTINA -->
+<div class="columna">
+
+<img src="RECURSOS/LUGARES/BANDERA Argentina.png" class="bandera">
+<img src="RECURSOS/LUGARES/ARGENITNA.png" class="titulo-pais">
+
+<div class="evento">
+<img src="RECURSOS/LUGARES/PRIMER PISO BAR.png" class="lugar">
+<img src="RECURSOS/Fechas/11_03.png" class="fecha">
+</div>
+
+<a href="https://alpogo.com/evento/bad-habit-fest-vol-2-24946" target="_blank" class="evento">
+<img src="RECURSOS/LUGARES/UNICLUB.png" class="lugar">
+<img src="RECURSOS/Fechas/01_04.png" class="fecha">
+</a>
+
+<a href="https://www.passline.com/eventos/infiniafest-001" target="_blank" class="evento">
+<img src="RECURSOS/LUGARES/BEATFLOW.png" class="lugar">
+<img src="RECURSOS/Fechas/02_04.png" class="fecha">
+</a>
+
+</div>
+
+<!-- CENTRO -->
+
+<div class="centro">
+
+<a href="https://www.instagram.com/shako2b/" target="_blank">
+<img src="RECURSOS/SHAKO logo.png" class="logo">
+</a>
+
+<img src="RECURSOS/EXTRAS/KETAMINE.png" class="subtitulo">
+<img src="RECURSOS/EXTRAS/TOUR.png" class="tour">
+
+<div class="sol-wrapper">
+<img src="RECURSOS/EXTRAS/Brillos.png" class="brillos">
+<img src="RECURSOS/Sol.png" class="sol">
+</div>
+
+</div>
+
+<!-- CHILE -->
+
+<div class="columna">
+
+<img src="RECURSOS/LUGARES/BANDERA Chile.png" class="bandera">
+<img src="RECURSOS/LUGARES/CHILE.png" class="titulo-pais">
+
+<a href="https://sonarproducciones.com/products/general-shako" class="evento">
+<img src="RECURSOS/LUGARES/Capa 40.png" class="lugar">
+<img src="RECURSOS/Fechas/21_03.png" class="fecha">
+</a>
+
+<a href="https://www.ecopass.cl/events" class="evento">
+<img src="RECURSOS/LUGARES/Capa 40.png" class="lugar">
+<img src="RECURSOS/Fechas/23_03.png" class="fecha">
+</a>
+
+<img src="RECURSOS/EXTRAS/Personaje hombre.png" class="personaje">
+
+</div>
+
+</div>
+
+<!-- PASTO -->
+
+<div class="pasto-contenedor">
+
+<img src="RECURSOS/Pasto.png" class="pasto">
+
+<img src="RECURSOS/Stickmans.png" class="stickmans">
+
+<img src="RECURSOS/EXTRAS/FLOR 1.png" class="flor flor-izq">
+<img src="RECURSOS/EXTRAS/FLOR 2.png" class="flor flor-der">
+
+<a href="https://www.instagram.com/rulo.4p/" target="_blank">
+<img src="RECURSOS/rulito.png" class="rulito">
+</a>
+
+<a href="https://www.instagram.com/dzzydesign/" target="_blank">
+<img src="RECURSOS/DzzyDesign Logo.png" class="dzzy">
+</a>
+
+</div>
+
+<footer>
+<span class="footer-text">@@ ™ - All rights reserved.</span>
+</footer>
+
+</body>
+</html>

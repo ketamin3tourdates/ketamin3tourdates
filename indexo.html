@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ------------------- GENERAL ------------------- */
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+    position:relative;
+    background-image: url("RECURSOS/Fondo WEB MAS CLARO.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+/* ------------------- DECORACIONES ------------------- */
+.cogollo, .porrito{
+    width:150px;
+    position:absolute;
+    top:10px;
+    z-index:200;
+    cursor:pointer;
+    image-rendering: pixelated;
+}
+
+.cogollo{ left:10px; }
+.porrito{ right:10px; }
+
+.cogollo:hover, .porrito:hover { animation: sacudir 0.2s steps(2) infinite; }
+
+@keyframes sacudir {
+    0%,50%{ transform:translateX(0); }
+    25%{ transform:translateX(-4px); }
+    75%{ transform:translateX(4px); }
+}
+
+/* ------------------- HEADER Y LOGO ------------------- */
+.header{
+    position:relative;
+    width:100%;
+    margin-top:30px;
+    z-index:50;
+}
+
+.logo-link{
+    display:block;
+    width:320px;
+    margin:0 auto;
+    position:relative;
+    z-index:60;
+}
+
+.logo{
+    width:320px;
+    height:auto;
+    display:block;
+    transition:transform 0.3s ease;
+    cursor:pointer;
+}
+
+.logo:hover{
+    transform:scale(1.15);
+}
+
+/* ------------------- SECCIONES ARGENTINA Y CHILE (ESCRITORIO) ------------------- */
+.argentina, .bandera-ar, .chile, .bandera-cl{
+    position:absolute;
+    z-index:60;
+}
+
+.argentina{ left:200px; top:50%; transform:translateY(-50%); width:200px; }
+.bandera-ar{ left:50px; top:calc(50% + 30px); width:200px; }
+.chile{ right:200px; top:50%; transform:translateY(-50%); width:140px; }
+.bandera-cl{ right:50px; top:calc(50% + 30px); width:200px; }
+
+/* ------------------- EVENTOS (ESCRITORIO) ------------------- */
+.evento, .evento2, .evento3, .evento-chile, .evento-chile2{
+    position:absolute;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    cursor:pointer;
+    text-decoration:none;
+    z-index:60;
+}
+
+.evento{ left:160px; top:calc(50% + 100px); }
+.evento2{ left:160px; top:calc(50% + 170px); }
+.evento3{ left:160px; top:calc(50% + 240px); }
+.evento-chile{ right:160px; top:calc(50% + 100px); }
+.evento-chile2{ right:160px; top:calc(50% + 180px); }
+
+.liverpool,.uniclub,.beatflow,.santiago{ width:200px; transition:transform 0.3s ease; }
+.liverpool{ width:240px; } .uniclub{ width:180px; } .santiago{ width:240px; }
+
+.fecha1,.fecha2,.fecha3,.fecha-chile,.fecha-chile2{ width:80px; transition:transform 0.3s ease; }
+
+.evento2:hover img, .evento3:hover img, .evento-chile:hover img, .evento-chile2:hover img{
+    transform:scale(1.15);
+}
+
+/* ------------------- PERSONAJE HOMBRE ------------------- */
+.personaje-hombre{
+    position:absolute;
+    right:160px;
+    top:calc(50% + 270px);
+    width:120px;
+    z-index:60;
+    transition: transform 0.3s ease;
+    cursor:pointer;
+}
+
+.personaje-hombre:hover{
+    transform:scale(1.15);
+}
+
+/* ------------------- ELEMENTOS CENTRALES ------------------- */
+.subtitulo-img{ width:260px; display:block; margin:10px auto; }
+.tour-img{ width:200px; display:block; margin:0 auto 30px auto; }
+.escena{ position:relative; width:100%; max-width:1920px; margin:auto; flex:1; }
+.sol{ position:absolute; bottom:160px; left:50%; transform:translateX(-50%); width:350px; z-index:0; }
+.brillos{ position:absolute; bottom:160px; left:50%; transform:translateX(-50%) scale(1); width:350px; z-index:-1; animation: brillosParpadeo 2.5s infinite; }
+@keyframes brillosParpadeo {0%,50%,100%{opacity:0; transform:translateX(-50%) scale(1);} 25%,75%{opacity:1; transform:translateX(-50%) scale(1.2);}}
+
+/* ------------------- PASTO Y DECORACIONES ------------------- */
+.pasto-contenedor{ position:relative; width:100%; height:150px; overflow:hidden; z-index:2; }
+.pasto{ width:100%; }
+.stickmans{ position:absolute; bottom:10px; left:50%; transform:translateX(-50%) scaleX(1.5); transform-origin:center bottom; width:250px; z-index:5; }
+.flor-izq, .flor-der{ position:absolute; bottom:10px; width:80px; z-index:5; }
+.flor-izq{ left: calc(50% - 250px - 90px); } .flor-der{ left: calc(50% + 250px + 10px); }
+.rulito{ position:absolute; bottom:10px; left:10px; width:200px; z-index:5; cursor:pointer; transition: transform 0.3s ease; }
+.rulito:hover{ transform:scale(1.1); }
+.dzzy-logo{ position:absolute; bottom:50px; right:30px; width:80px; opacity:0.9; cursor:pointer; transition:transform 0.3s ease,opacity 0.3s ease; z-index:100; }
+.dzzy-logo:hover{ transform:scale(1.1); opacity:1; }
+
+/* ------------------- FOOTER ------------------- */
+footer{ width:100%; background:#2b2b2b; color:white; text-align:center; padding:6px; font-family:Arial; font-size:14px; }
+.footer-text{ display:inline-block; transition:transform 0.7s ease,opacity 0.7s ease,filter 0.7s ease; }
+.footer-text:hover{ transform:scale(1.8); opacity:0; filter:blur(10px); }
+
+/* ------------------- GLITCH ------------------- */
+.ba-hover{ position:relative; display:flex; align-items:center; }
+.ba-hover img{ transition:filter 0.3s ease; }
+.ba-hover:hover img{ filter:brightness(30%); }
+.glitch{ position:absolute; left:0; font-size:26px; font-weight:bold; font-family:Arial,Helvetica,sans-serif; color:white; letter-spacing:3px; opacity:0; }
+.ba-hover:hover .glitch{ opacity:1; animation:glitch 0.6s infinite; }
+@keyframes glitch{0%{transform:translate(0);text-shadow:2px 0 red,-2px 0 cyan;}20%{transform:translate(-2px,2px);text-shadow:-2px -2px red,2px 2px cyan;}40%{transform:translate(-2px,-2px);text-shadow:2px 2px red,-2px -2px cyan;}60%{transform:translate(2px,2px);text-shadow:-2px 2px red,2px -2px cyan;}80%{transform:translate(2px,-2px);text-shadow:2px -2px red,-2px 2px cyan;}100%{transform:translate(0);text-shadow:2px 0 red,-2px 0 cyan;}}
+
+/* ------------------- SACUDIDA CAPA41 ------------------- */
+.capa41{ width:100px; cursor:pointer; transition: transform 0.2s ease; position:absolute; right:50px; top:calc(50% + 190px); }
+.capa41:hover{ animation: shake 0.5s infinite; }
+@keyframes shake{0%{transform:translate(1px,1px) rotate(0deg);}10%{transform:translate(-1px,-2px) rotate(-1deg);}20%{transform:translate(-3px,0) rotate(1deg);}30%{transform:translate(3px,2px) rotate(0deg);}40%{transform:translate(1px,-1px) rotate(1deg);}50%{transform:translate(-1px,2px) rotate(-1deg);}60%{transform:translate(-3px,1px) rotate(0deg);}70%{transform:translate(3px,1px) rotate(-1deg);}80%{transform:translate(-1px,-1px) rotate(1deg);}90%{transform:translate(1px,2px) rotate(0deg);}100%{transform:translate(1px,-2px) rotate(-1deg);}}
+
+/* ------------------- GARABATOS / ESPIRALES ------------------- */
+.garabatos{
+    position:absolute;
+    left:140px;
+    top: calc(50% + 320px);
+    display:flex;
+    gap:20px;
+    z-index:60;
+}
+
+.espiral{
+    width:80px;
+    height:auto;
+    transition: all 0.3s ease;
+}
+
+.fuego:hover{
+    animation: prenderFuego 0.5s infinite alternate;
+    filter: brightness(2) drop-shadow(0 0 10px orange) drop-shadow(0 0 20px red);
+}
+
+@keyframes prenderFuego{
+    0%{
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1.5) drop-shadow(0 0 5px orange) drop-shadow(0 0 10px red);
+    }
+    50%{
+        transform: scale(1.1) rotate(-5deg);
+        filter: brightness(2) drop-shadow(0 0 10px orange) drop-shadow(0 0 20px red);
+    }
+    100%{
+        transform: scale(1) rotate(5deg);
+        filter: brightness(2.5) drop-shadow(0 0 15px orange) drop-shadow(0 0 30px red);
+    }
+}
+
+/* ------------------- MEDIA QUERIES MÓVIL ------------------- */
+@media screen and (max-width:768px){
+    .header{ display:flex; flex-direction:column; align-items:center; }
+    .eventos-movil{ display:flex; overflow-x:auto; gap:15px; padding:10px; width:100%; }
+    .eventos-movil .evento, .eventos-movil .evento2, .eventos-movil .evento3, .eventos-movil .evento-chile, .eventos-movil .evento-chile2{
+        position:relative;
+        flex:0 0 auto;
+    }
+    .argentina, .bandera-ar, .chile, .bandera-cl{ position:relative; left:auto; right:auto; top:auto; transform:none; margin:0 auto; }
+    .personaje-hombre, .capa41{ position:relative; left:auto; right:auto; top:auto; margin:10px auto; }
+    .garabatos{ position:relative; flex-wrap:wrap; justify-content:center; top:auto; left:auto; margin:10px auto; }
+
+    /* --------- OCULTAR ELEMENTOS EN MÓVIL --------- */
+    .subtitulo-img, .tour-img, .capa41 {
+        display: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<!-- COGOLLO Y PORRITO -->
+<img src="RECURSOS/EXTRAS/Cogollo.png" class="cogollo">
+<img src="RECURSOS/EXTRAS/Porrito.png" class="porrito">
+
+<div class="header">
+    <!-- LOGO -->
+    <a href="https://www.instagram.com/shako2b/" target="_blank" class="logo-link">
+        <img src="RECURSOS/SHAKO logo.png" class="logo">
+    </a>
+
+    <!-- SECCIÓN ARGENTINA -->
+    <img src="RECURSOS/LUGARES/BANDERA Argentina.png" class="bandera-ar">
+    <img src="RECURSOS/LUGARES/ARGENITNA.png" class="argentina">
+
+    <div class="eventos-movil">
+        <div class="evento">
+            <div class="ba-hover">
+                <img src="RECURSOS/LUGARES/PRIMER PISO BAR.png" class="liverpool">
+                <div class="glitch">[TICKETS TOMORROW]</div>
+            </div>
+            <img src="RECURSOS/Fechas/11_03.png" class="fecha1">
+        </div>
+
+        <a href="https://alpogo.com/evento/bad-habit-fest-vol-2-24946" target="_blank" class="evento2">
+            <img src="RECURSOS/LUGARES/UNICLUB.png" class="uniclub">
+            <img src="RECURSOS/Fechas/01_04.png" class="fecha2">
+        </a>
+
+        <a href="https://www.passline.com/eventos/infiniafest-001?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" class="evento3">
+            <img src="RECURSOS/LUGARES/BEATFLOW.png" class="beatflow">
+            <img src="RECURSOS/Fechas/02_04.png" class="fecha3">
+        </a>
+    </div>
+
+    <!-- SECCIÓN CHILE -->
+    <img src="RECURSOS/LUGARES/BANDERA Chile.png" class="bandera-cl">
+    <img src="RECURSOS/LUGARES/CHILE.png" class="chile">
+
+    <div class="eventos-movil">
+        <a href="https://sonarproducciones.com/products/general-shako?variant=46010834747591" target="_blank" class="evento-chile">
+            <img src="RECURSOS/LUGARES/Capa 40.png" class="santiago">
+            <img src="RECURSOS/Fechas/21_03.png" class="fecha-chile">
+        </a>
+
+        <a href="https://www.ecopass.cl/events/r*p-archiv/17456" target="_blank" class="evento-chile2">
+            <img src="RECURSOS/LUGARES/Capa 40.png" class="santiago">
+            <img src="RECURSOS/Fechas/23_03.png" class="fecha-chile2">
+        </a>
+    </div>
+
+    <!-- PERSONAJE HOMBRE -->
+    <img src="RECURSOS/EXTRAS/Personaje hombre.png" class="personaje-hombre">
+
+    <!-- Capa41 -->
+    <a href="https://www.instagram.com/66ixup/" target="_blank">
+        <img src="RECURSOS/Capa 41.png" class="capa41">
+    </a>
+
+    <!-- GARABATOS / ESPIRALES -->
+    <div class="garabatos">
+        <img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral fuego">
+        <img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral fuego">
+    </div>
+</div>
+
+<!-- IMÁGENES CENTRALES -->
+<img src="RECURSOS/EXTRAS/KETAMINE.png" class="subtitulo-img">
+<img src="RECURSOS/EXTRAS/TOUR.png" class="tour-img">
+
+<div class="escena"></div>
+
+<!-- Brillos y sol -->
+<img src="RECURSOS/EXTRAS/Brillos.png" class="brillos">
+<img src="RECURSOS/Sol.png" class="sol">
+
+<!-- PASTO Y DECORACIONES -->
+<div class="pasto-contenedor">
+    <img src="RECURSOS/Pasto.png" class="pasto">
+    <img src="RECURSOS/Stickmans.png" class="stickmans">
+    <img src="RECURSOS/EXTRAS/FLOR 1.png" class="flor-izq">
+    <img src="RECURSOS/EXTRAS/FLOR 2.png" class="flor-der">
+    <a href="https://www.instagram.com/rulo.4p/" target="_blank">
+        <img src="RECURSOS/rulito.png" class="rulito">
+    </a>
+</div>
+
+<!-- LOGO DZZY -->
+<a href="https://www.instagram.com/dzzydesign/" target="_blank">
+    <img src="RECURSOS/DzzyDesign Logo.png" class="dzzy-logo">
+</a>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-text">@@ ™ - All rights reserved.</span>
+</footer>
+</body>
+</html>
