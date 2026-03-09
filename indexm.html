@@ -209,6 +209,11 @@ animation:brillos 2.5s infinite;
 
 /* ---------------- PERSONAJE ---------------- */
 
+.personaje-wrapper{
+position:relative;
+display:inline-block;
+}
+
 .personaje{
 width:110px;
 transition:.3s;
@@ -217,6 +222,30 @@ cursor:pointer;
 
 .personaje:hover{
 transform:scale(1.1);
+}
+
+/* ESPIRALES */
+
+.espiral{
+position:absolute;
+width:40px;
+opacity:0.9;
+animation:girar 6s linear infinite;
+}
+
+.espiral1{
+top:10px;
+right:-35px;
+}
+
+.espiral2{
+bottom:5px;
+right:-70px;
+}
+
+@keyframes girar{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 /* ---------------- PASTO ---------------- */
@@ -414,7 +443,14 @@ width:200px;
 <img src="RECURSOS/Fechas/23_03.png" class="fecha">
 </a>
 
+<div class="personaje-wrapper">
+
 <img src="RECURSOS/EXTRAS/Personaje hombre.png" class="personaje">
+
+<img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral espiral1">
+<img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral espiral2">
+
+</div>
 
 </div>
 
