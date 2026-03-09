@@ -171,13 +171,9 @@ gap:20px;
 
 .logo{
 width:260px;
-transition:.3s;
 cursor:pointer;
 max-width:100%;
-}
-
-.logo:hover{
-transform:scale(1.1);
+animation:pulso-brillo 4s ease-in-out infinite;
 }
 
 .subtitulo{
@@ -260,11 +256,28 @@ left:20px;
 bottom:10px;
 width:160px;
 cursor:pointer;
-transition:.3s;
+animation:pulso-brillo 4s ease-in-out infinite;
 }
 
-.rulito:hover{
-transform:scale(1.1);
+/* ---------------- ANIMACION BRILLO ---------------- */
+
+@keyframes pulso-brillo{
+
+0%{
+transform:scale(1);
+filter:drop-shadow(0 0 0px rgba(255,255,255,0));
+}
+
+50%{
+transform:scale(1.08);
+filter:drop-shadow(0 0 16px rgba(255,255,255,0.9));
+}
+
+100%{
+transform:scale(1);
+filter:drop-shadow(0 0 0px rgba(255,255,255,0));
+}
+
 }
 
 /* ---------------- LOGO DZZY ---------------- */
@@ -346,17 +359,15 @@ width:200px;
 
 <div class="layout">
 
-<!-- ARGENTINA -->
 <div class="columna">
 
 <img src="RECURSOS/LUGARES/BANDERA Argentina.png" class="bandera">
 <img src="RECURSOS/LUGARES/ARGENITNA.png" class="titulo-pais">
 
-<!-- EVENTO CON GLITCH -->
 <div class="ba-hover">
 <img src="RECURSOS/LUGARES/PRIMER PISO BAR.png" class="lugar">
 <img src="RECURSOS/Fechas/11_03.png" class="fecha">
-<div class="glitch">PRIMER PISO BAR</div>
+<div class="glitch">[TICKETS TOMORROW]</div>
 </div>
 
 <a href="https://alpogo.com/evento/bad-habit-fest-vol-2-24946" target="_blank" class="evento">
@@ -370,8 +381,6 @@ width:200px;
 </a>
 
 </div>
-
-<!-- CENTRO -->
 
 <div class="centro">
 
@@ -388,8 +397,6 @@ width:200px;
 </div>
 
 </div>
-
-<!-- CHILE -->
 
 <div class="columna">
 
@@ -411,8 +418,6 @@ width:200px;
 </div>
 
 </div>
-
-<!-- PASTO -->
 
 <div class="pasto-contenedor">
 
