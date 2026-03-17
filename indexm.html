@@ -116,50 +116,6 @@ width:180px;
 width:70px;
 }
 
-/* ---------------- GLITCH ---------------- */
-
-.ba-hover{
-position:relative;
-display:flex;
-align-items:center;
-gap:12px;
-cursor:pointer;
-}
-
-.ba-hover img{
-transition:filter .3s ease;
-}
-
-.ba-hover:hover img{
-filter:brightness(30%);
-}
-
-.glitch{
-position:absolute;
-left:0;
-font-size:26px;
-font-weight:bold;
-font-family:Arial,Helvetica,sans-serif;
-color:white;
-letter-spacing:3px;
-opacity:0;
-pointer-events:none;
-}
-
-.ba-hover:hover .glitch{
-opacity:1;
-animation:glitch .6s infinite;
-}
-
-@keyframes glitch{
-0%{transform:translate(0);text-shadow:2px 0 red,-2px 0 cyan;}
-20%{transform:translate(-2px,2px);text-shadow:-2px -2px red,2px 2px cyan;}
-40%{transform:translate(-2px,-2px);text-shadow:2px 2px red,-2px -2px cyan;}
-60%{transform:translate(2px,2px);text-shadow:-2px 2px red,2px -2px cyan;}
-80%{transform:translate(2px,-2px);text-shadow:2px -2px red,-2px 2px cyan;}
-100%{transform:translate(0);text-shadow:2px 0 red,-2px 0 cyan;}
-}
-
 /* ---------------- CENTRO ---------------- */
 
 .centro{
@@ -209,6 +165,11 @@ animation:brillos 2.5s infinite;
 
 /* ---------------- PERSONAJE ---------------- */
 
+.personaje-wrapper{
+position:relative;
+display:inline-block;
+}
+
 .personaje{
 width:110px;
 transition:.3s;
@@ -217,6 +178,32 @@ cursor:pointer;
 
 .personaje:hover{
 transform:scale(1.1);
+}
+
+/* ESPIRALES */
+
+.espiral{
+position:absolute;
+width:40px;
+opacity:0.9;
+animation:girar 6s linear infinite;
+}
+
+/* ahora están uno al lado del otro */
+
+.espiral1{
+top:35px;
+right:-40px;
+}
+
+.espiral2{
+top:35px;
+right:-80px;
+}
+
+@keyframes girar{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 /* ---------------- PASTO ---------------- */
@@ -241,14 +228,7 @@ bottom:10px;
 width:220px;
 }
 
-.flor{
-position:absolute;
-bottom:10px;
-width:70px;
-}
-
-.flor-izq{left:25%;}
-.flor-der{right:25%;}
+/* RULITO */
 
 .rulito{
 position:absolute;
@@ -256,26 +236,25 @@ left:20px;
 bottom:10px;
 width:160px;
 cursor:pointer;
-animation:pulso-brillo 2s ease-in-out infinite;
+animation:pulso-brillo-suave 3s ease-in-out infinite;
 }
 
-/* ---------------- ANIMACION BRILLO ---------------- */
+/* ---------------- ANIMACION BRILLO SUAVE ---------------- */
 
-@keyframes pulso-brillo{
+@keyframes pulso-brillo-suave{
 
 0%{
-transform:scale(0.95);
+transform:scale(0.98);
 filter:drop-shadow(0 0 0px rgba(255,255,255,0));
 }
 
 50%{
-transform:scale(1.18);
-filter:drop-shadow(0 0 22px rgba(255,255,255,1))
-       drop-shadow(0 0 40px rgba(255,255,255,0.8));
+transform:scale(1.04);
+filter:drop-shadow(0 0 8px rgba(255,255,255,0.5));
 }
 
 100%{
-transform:scale(0.95);
+transform:scale(0.98);
 filter:drop-shadow(0 0 0px rgba(255,255,255,0));
 }
 
@@ -365,11 +344,10 @@ width:200px;
 <img src="RECURSOS/LUGARES/BANDERA Argentina.png" class="bandera">
 <img src="RECURSOS/LUGARES/ARGENITNA.png" class="titulo-pais">
 
-<div class="ba-hover">
+<a href="https://alpogo.com/evento/hypefest-edicion-buenos-aires-25155" target="_blank" class="evento">
 <img src="RECURSOS/LUGARES/PRIMER PISO BAR.png" class="lugar">
 <img src="RECURSOS/Fechas/11_03.png" class="fecha">
-<div class="glitch">[TICKETS TOMORROW]</div>
-</div>
+</a>
 
 <a href="https://alpogo.com/evento/bad-habit-fest-vol-2-24946" target="_blank" class="evento">
 <img src="RECURSOS/LUGARES/UNICLUB.png" class="lugar">
@@ -409,12 +387,23 @@ width:200px;
 <img src="RECURSOS/Fechas/21_03.png" class="fecha">
 </a>
 
-<a href="https://www.ecopass.cl/events" class="evento">
+<a href="www.ecopass.cl/events/r*p-archiv/17456" class="evento">
 <img src="RECURSOS/LUGARES/Capa 40.png" class="lugar">
 <img src="RECURSOS/Fechas/23_03.png" class="fecha">
 </a>
 
+<a href="https://www.instagram.com/66ixup/" target="_blank">
+<img src="RECURSOS/Capa 41.png" style="width:180px;">
+</a>
+
+<div class="personaje-wrapper">
+
 <img src="RECURSOS/EXTRAS/Personaje hombre.png" class="personaje">
+
+<img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral espiral1">
+<img src="RECURSOS/EXTRAS/Garabatos/Espiral.png" class="espiral espiral2">
+
+</div>
 
 </div>
 
@@ -425,9 +414,6 @@ width:200px;
 <img src="RECURSOS/Pasto.png" class="pasto">
 
 <img src="RECURSOS/Stickmans.png" class="stickmans">
-
-<img src="RECURSOS/EXTRAS/FLOR 1.png" class="flor flor-izq">
-<img src="RECURSOS/EXTRAS/FLOR 2.png" class="flor flor-der">
 
 <a href="https://www.instagram.com/rulo.4p/" target="_blank">
 <img src="RECURSOS/rulito.png" class="rulito">
